@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cympf4buvleab"]
+
+[ext_resource type="Script" uid="uid://q8m5bs4oioog" path="res://Particles/explosion.gd" id="1_6555r"]
+
+[sub_resource type="Curve" id="Curve_g1h0r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.292135), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_6555r")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 60
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_g1h0r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
