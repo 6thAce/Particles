@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://do1shxydsg48q"]
+
+[ext_resource type="Script" uid="uid://b3puo7kel6lg3" path="res://rain.gd" id="1_hyqdn"]
+
+[node name="Rain" type="Node2D"]
+script = ExtResource("1_hyqdn")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(14, -65)
+amount = 150
+lifetime = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(130, 1)
+gravity = Vector2(-200, 980)
+scale_amount_min = 0.2
+color = Color(0.270588, 1, 1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)

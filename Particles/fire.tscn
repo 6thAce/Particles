@@ -14,6 +14,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0.152231, 0.152231, 0.152231, 0.886932, 0.
 script = ExtResource("1_8112t")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 1200
 lifetime = 0.5
 emission_shape = 1
