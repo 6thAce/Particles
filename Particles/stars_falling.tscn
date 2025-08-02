@@ -1,21 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpvgftcftmcer"]
+[gd_scene load_steps=4 format=3 uid="uid://dpvgftcftmcer"]
+
+[sub_resource type="Gradient" id="Gradient_6fgis"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ds5xp"]
+gradient = SubResource("Gradient_6fgis")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6fgis"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(500, 200, 1)
-spread = 20.0
+angle_min = -720.0
+angle_max = 720.0
+spread = 0.0
 initial_velocity_min = 20.0
 initial_velocity_max = 80.0
 gravity = Vector3(0, 10, 0)
-color = Color(0, 0, 0, 1)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+color_ramp = SubResource("GradientTexture1D_ds5xp")
 
 [node name="Stars Falling" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(548, 219)
-amount = 100
+amount = 20
 visibility_rect = Rect2(-500, -200, 1000, 400)
 trail_enabled = true
-trail_lifetime = 2.32
+trail_lifetime = 12.74
 process_material = SubResource("ParticleProcessMaterial_6fgis")
