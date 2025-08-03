@@ -1,8 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtf40ggwn0vm0"]
+[gd_scene load_steps=5 format=3 uid="uid://dtf40ggwn0vm0"]
 
 [ext_resource type="Texture2D" uid="uid://cqtpuswmdbqmm" path="res://❄.png" id="1_2ckbf"]
+
+[sub_resource type="Gradient" id="Gradient_2ckbf"]
+offsets = PackedFloat32Array(0, 0.0181818, 0.218182, 0.745455, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.681818, 0.681818, 0.681818, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aibyt"]
+gradient = SubResource("Gradient_2ckbf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ko62k"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(200, 100, 1)
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -720.0
+angle_max = 33.2
+gravity = Vector3(0, 60, 0)
+scale_min = 0.0
+scale_max = 0.75
+color_ramp = SubResource("GradientTexture1D_aibyt")
 
 [node name="Snow Flakes" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(612, 312)
+amount = 20
 texture = ExtResource("1_2ckbf")
+process_material = SubResource("ParticleProcessMaterial_ko62k")
+
+[node name="Camera2D" type="Camera2D" parent="GPUParticles2D"]
+zoom = Vector2(5, 5)
