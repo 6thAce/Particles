@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtf40ggwn0vm0"]
+
+[ext_resource type="Texture2D" uid="uid://cqtpuswmdbqmm" path="res://❄.png" id="1_2ckbf"]
+
+[node name="Snow Flakes" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture = ExtResource("1_2ckbf")
