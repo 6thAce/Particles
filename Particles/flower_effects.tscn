@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bje8q8q3m465h"]
+
+[ext_resource type="Texture2D" uid="uid://c2af0muyomyqq" path="res://Flower 5 - PURPLE.png" id="1_1omyk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qodle"]
+lifetime_randomness = 0.75
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector3(0, 20, 0)
+linear_accel_min = -8.05
+linear_accel_max = -8.05
+scale_min = 0.25
+scale_max = 0.75
+turbulence_enabled = true
+turbulence_noise_strength = 2.0
+
+[node name="Flower Effects" type="Node2D"]
+
+[node name="Flower5-Purple" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(570, 347)
+texture = ExtResource("1_1omyk")
+
+[node name="Camera2D" type="Camera2D" parent="Flower5-Purple"]
+zoom = Vector2(9, 9)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(570, 335)
+amount = 3
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_qodle")
