@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6dev3h285fn0"]
+
+[sub_resource type="Gradient" id="Gradient_1ubu3"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_53x60"]
+gradient = SubResource("Gradient_1ubu3")
+
+[sub_resource type="Curve" id="Curve_iyrhw"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, -186.517), 0.0, 0.0, 0, 0, Vector2(0.816176, 24.7191), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pofb3"]
+curve = SubResource("Curve_iyrhw")
+
+[sub_resource type="Curve" id="Curve_1ubu3"]
+_data = [Vector2(0, 0.0561798), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_53x60"]
+curve = SubResource("Curve_1ubu3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1flbm"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(80, -70, 1)
+inherit_velocity_ratio = 1.0
+gravity = Vector3(0, -100, 0)
+radial_accel_curve = SubResource("CurveTexture_pofb3")
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_53x60")
+scale_over_velocity_min = 45.98
+scale_over_velocity_max = 45.98
+color_ramp = SubResource("GradientTexture1D_53x60")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+anim_speed_min = 16.0
+anim_speed_max = 16.0
+anim_offset_min = 0.4828
+anim_offset_max = 0.4828
+
+[node name="Fire Works" type="Node2D"]
+position = Vector2(549, 286)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 12
+explosiveness = 0.5
+randomness = 0.2
+trail_enabled = true
+trail_lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_1flbm")
+
+[node name="Camera2D" type="Camera2D" parent="GPUParticles2D"]
+zoom = Vector2(5, 5)
