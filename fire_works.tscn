@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6dev3h285fn0"]
+[gd_scene load_steps=12 format=3 uid="uid://b6dev3h285fn0"]
+
+[ext_resource type="Script" uid="uid://bhp7usv6j0krr" path="res://fire_works.gd" id="1_53x60"]
 
 [sub_resource type="Gradient" id="Gradient_1ubu3"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
@@ -41,11 +43,25 @@ anim_speed_max = 16.0
 anim_offset_min = 0.4828
 anim_offset_max = 0.4828
 
+[sub_resource type="Gradient" id="Gradient_iyrhw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pofb3"]
+gradient = SubResource("Gradient_iyrhw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_05lkl"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+inherit_velocity_ratio = 200.0
+gravity = Vector3(0, 50, 0)
+color_ramp = SubResource("GradientTexture1D_pofb3")
+
 [node name="Fire Works" type="Node2D"]
 position = Vector2(549, 286)
+script = ExtResource("1_53x60")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-emitting = false
+[node name="RocketTrail" type="GPUParticles2D" parent="."]
 amount = 12
 explosiveness = 0.5
 randomness = 0.2
@@ -53,5 +69,15 @@ trail_enabled = true
 trail_lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_1flbm")
 
-[node name="Camera2D" type="Camera2D" parent="GPUParticles2D"]
+[node name="Explosion" type="GPUParticles2D" parent="."]
+emitting = false
+lifetime = 1.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_05lkl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
