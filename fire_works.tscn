@@ -61,6 +61,13 @@ color_ramp = SubResource("GradientTexture1D_pofb3")
 position = Vector2(549, 286)
 script = ExtResource("1_53x60")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -116.0
+offset_top = -66.0
+offset_right = 116.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+
 [node name="RocketTrail" type="GPUParticles2D" parent="."]
 amount = 12
 explosiveness = 0.5
