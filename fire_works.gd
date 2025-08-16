@@ -13,7 +13,7 @@ func start_firework():
 	# Set timer to trigger explosion (adjust to match rocket travel time)
 	timer.wait_time = 1.0
 	timer.start()
-
+ 
 func _on_Timer_timeout():
 	# Stop rocket trail
 	rocket.emitting = false
