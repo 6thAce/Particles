@@ -9,7 +9,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6wx6n"]
 gradient = SubResource("Gradient_uk8wv")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jo4w4"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbnyu"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(500, 200, 1)
@@ -32,4 +32,4 @@ lifetime = 4.0
 preprocess = 1.87
 speed_scale = 0.5
 visibility_rect = Rect2(-500, -200, 1000, 400)
-process_material = SubResource("ParticleProcessMaterial_jo4w4")
+process_material = SubResource("ParticleProcessMaterial_qbnyu")
