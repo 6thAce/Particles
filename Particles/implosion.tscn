@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqkk2ncfgvgf8"]
+
+[sub_resource type="Gradient" id="Gradient_lnmq3"]
+offsets = PackedFloat32Array(0, 0.21519, 0.857595, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sr7sb"]
+gradient = SubResource("Gradient_lnmq3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sv1uv"]
+emission_shape_offset = Vector3(0, 0, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 150.0
+emission_ring_inner_radius = 120.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -200.0
+radial_accel_max = -2.23517e-06
+scale_min = 4.0
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_sr7sb")
+
+[node name="Implosion" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_sv1uv")
