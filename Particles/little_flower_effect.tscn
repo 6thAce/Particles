@@ -18,6 +18,11 @@ turbulence_noise_strength = 2.0
 
 [node name="Little Flower Effect" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1174.0
+offset_bottom = 655.0
+color = Color(0, 0, 0, 1)
+
 [node name="Flower4-Teal" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(569, 336)
